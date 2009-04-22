@@ -7,12 +7,12 @@ void setup()
 
 void loop()
 {
-  //�A�i���O����0�ԃs���ɂ͈��d�X�s�[�J���Ȃ����Ă���B
-  //�i���d�X�s�[�J�̔��Α���arduino��GND�ɂȂ��j
-  val = analogRead(0);�@
+  //アナログ入力0番ピンには圧電スピーカがつながっている。
+  //（圧電スピーカの反対側はarduinoのGNDにつなぐ）
+  val = analogRead(0);　
   if (abs(prev_val - val) > 20){
-    Serial.println(val / 8, DEC); //MIDI�ɑ���̂ōő�l��127�ɂȂ�悤�ɂ���
+    Serial.println(val / 8, DEC); //MIDIに送るので最大値が127になるようにする
   }
   prev_val = val;
-  delay(10);�@//�▭�̃^�C�~���O�i��M����0.4�b���Ƃɂ���Ƃ��܂������j
+  delay(10); //絶妙のタイミング（受信側を0.4秒ごとにするとうまくいく）
 }
