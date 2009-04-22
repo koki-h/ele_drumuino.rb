@@ -30,5 +30,5 @@ while 1 do
   elsif (velo <= 0 && note_on)
     note_on = false
   end
-  sleep(0.04) #â–­‚Ìƒ^ƒCƒ~ƒ“ƒOiarduino‘¤‚Í0.01•b‚²‚Æ‚ÉƒƒbƒZ[ƒW‘—oj
+  sleep(0.04) #çµ¶å¦™ã®ã‚¿ã‚¤ãƒŸãƒ³ã‚°ï¼ˆarduinoå´ã¯0.01ç§’ã”ã¨ã«ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸é€å‡ºï¼‰
 end
