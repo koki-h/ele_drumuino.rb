@@ -1,16 +1,15 @@
 require 'winMidiIF'
-require 'wincom'
+require 'arduino_io'
 BASS_NOTE = 36
 SNARE_NOTE = 40
 HIHAT_NOTE = 42
 count = 0
 midi = MidiDevice.new
 drum_cannel = midi.openChannel(9)
-comp = Serial.new
-comp.open(6,0x0000,115200,8,0,0,256,256)
+aio = ArduinoIO.new(6)
 note_on = false
 while 1 do
-  data = comp.receive();
+  data = aio.read;
   if data
     velo = data.to_i
     puts velo
