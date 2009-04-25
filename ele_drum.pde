@@ -1,18 +1,72 @@
 int val = 0;
 int prev_val = 0;
+int redPin = 9;
+int greenPin = 10;
+int bluePin = 11;
+
 void setup()
 {
+  pinMode(redPin, OUTPUT);
+  pinMode(greenPin, OUTPUT);
+  pinMode(bluePin, OUTPUT);
   Serial.begin(115200);
 }
 
 void loop()
 {
-  //ã‚¢ãƒŠãƒ­ã‚°å…¥åŠ›0ç•ªãƒ”ãƒ³ã«ã¯åœ§é›»ã‚¹ãƒ”ãƒ¼ã‚«ãŒã¤ãªãŒã£ã¦ã„ã‚‹ã€‚
-  //ï¼ˆåœ§é›»ã‚¹ãƒ”ãƒ¼ã‚«ã®åå¯¾å´ã¯arduinoã®GNDã«ã¤ãªãï¼‰
-  val = analogRead(0);ã€€
-  if (abs(prev_val - val) > 20){
-    Serial.println(val / 8, DEC); //MIDIã«é€ã‚‹ã®ã§æœ€å¤§å€¤ãŒ127ã«ãªã‚‹ã‚ˆã†ã«ã™ã‚‹
+  //ƒAƒiƒƒO“ü—Í0”Ôƒsƒ“‚É‚Íˆ³“dƒXƒs[ƒJ‚ª‚Â‚È‚ª‚Á‚Ä‚¢‚éB
+  //iˆ³“dƒXƒs[ƒJ‚Ì”½‘Î‘¤‚Íarduino‚ÌGND‚É‚Â‚È‚®j
+  delay(1);                          //1ƒ~ƒŠ•b‚Éˆê‰ñ“ü—Í‚ğ“Ç‚İæ‚éB
+  val = analogRead(0);
+  if (abs(prev_val - val) > 20 ){    //×‚©‚·‚¬‚éU“®‚Í‘—‚ç‚È‚¢
+    Serial.println(val / 8, DEC);    //MIDI‚É‘—‚é‚Ì‚ÅÅ‘å’l‚ª127‚É‚È‚é‚æ‚¤‚É‚·‚é
+    led_blink(val);
+    delay(9);                        //ƒmƒCƒY‚ªæ‚ç‚È‚¢‚æ‚¤‚Éƒf[ƒ^‚ğ‘—‚Á‚½‚Æ‚«‚Í9ƒ~ƒŠ•b‘Ò‚Â
   }
   prev_val = val;
-  delay(10); //çµ¶å¦™ã®ã‚¿ã‚¤ãƒŸãƒ³ã‚°ï¼ˆå—ä¿¡å´ã‚’0.4ç§’ã”ã¨ã«ã™ã‚‹ã¨ã†ã¾ãã„ãï¼‰
+}
+
+void led_blink(int val){
+    switch(val % 7){
+      case 0:
+        digitalWrite(redPin,   HIGH);
+        digitalWrite(greenPin, HIGH);
+        digitalWrite(bluePin,  HIGH);
+        break;
+      case 1:
+        digitalWrite(redPin,   HIGH);
+        digitalWrite(greenPin, HIGH);
+        digitalWrite(bluePin,  LOW);
+        break;
+      case 2:
+        digitalWrite(redPin,   HIGH);
+        digitalWrite(greenPin, LOW);
+        digitalWrite(bluePin,  HIGH);
+        break;
+      case 3:
+        digitalWrite(redPin,   HIGH);
+        digitalWrite(greenPin, LOW);
+        digitalWrite(bluePin,  LOW);
+        break;
+      case 4:
+        digitalWrite(redPin,   LOW);
+        digitalWrite(greenPin, HIGH);
+        digitalWrite(bluePin,  HIGH);
+        break;
+      case 5:
+        digitalWrite(redPin,   LOW);
+        digitalWrite(greenPin, HIGH);
+        digitalWrite(bluePin,  LOW);
+        break;
+      case 6:
+        digitalWrite(redPin,   LOW);
+        digitalWrite(greenPin, LOW);
+        digitalWrite(bluePin,  HIGH);
+        break;
+      case 7:
+        digitalWrite(redPin,   LOW);
+        digitalWrite(greenPin, LOW);
+        digitalWrite(bluePin,  LOW);
+        break;
+      }
 }
