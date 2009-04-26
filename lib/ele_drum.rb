@@ -7,6 +7,15 @@ class MidiDrum
     @aio  = arduino_io
     @drum_cannel = @midi.openChannel(9)
   end
+  def play(velo,count)
+    @drum_cannel.playMidiSound(HIHAT_NOTE,velo)
+    if (count % 4 == 2)
+      @drum_cannel.playMidiSound(SNARE_NOTE,velo)
+    end
+    if (count % 8 == 0)
+      @drum_cannel.playMidiSound(BASS_NOTE,velo)
+    end
+  end
   def wait
     note_on = false
     count = 0
@@ -19,13 +28,7 @@ class MidiDrum
         velo = 0
       end
       if (velo > 0 && !note_on)
-        @drum_cannel.playMidiSound(HIHAT_NOTE,velo)
-        if (count % 4 == 2)
-          @drum_cannel.playMidiSound(SNARE_NOTE,velo)
-        end
-        if (count % 8 == 0)
-          @drum_cannel.playMidiSound(BASS_NOTE,velo)
-        end
+        play(velo,count)
         note_on = true
         count += 1
       elsif (velo <= 0 && note_on)
