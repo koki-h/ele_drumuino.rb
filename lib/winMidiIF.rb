@@ -65,7 +65,7 @@ class MidiDevice
     @midiOutShortMsg.call(@ptr,msg)   # メッセージを送信
   end
   def openChannel(no)
-    channel = @using_channels.find {|c| c.no == no}
+    channel = @using_channels.find {|c| c == no}
     unless channel
       channel = MidiChannel.new(self,no)
       @using_channels.push(channel)
