@@ -2,22 +2,11 @@ BASS_NOTE = 36
 SNARE_NOTE = 40
 HIHAT_NOTE = 42
 class MidiDrum
-  def initialize(midi_device, arduino_io, pattern = nil)
+  def initialize(midi_device, arduino_io, pattern)
     @midi = midi_device
     @aio  = arduino_io
-    @pattern = pattern || lambda{|velo,count,device| default_pattern(velo,count)}
+    @pattern = pattern
     p pattern
-  end
-
-  def default_pattern(velo,count)
-    drum_channel = @midi.openChannel(9)
-    drum_channel.playMidiSound(HIHAT_NOTE,velo)
-    if (count % 4 == 2)
-      drum_channel.playMidiSound(SNARE_NOTE,velo)
-    end
-    if (count % 8 == 0)
-      drum_channel.playMidiSound(BASS_NOTE,velo)
-    end
   end
 
   def play(velo,count)
