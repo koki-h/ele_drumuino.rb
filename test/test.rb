@@ -4,7 +4,7 @@ require 'lib/ele_drum'
 require 'lib/song_pattern'
 
 output = MidiDevice.new
-input = MockArduinoIO.new()
+input = MockArduinoIO.new(600)
 pattern_file = ARGV[0]
 pattern = SongPattern::load(pattern_file)
 drum = MidiDrum.new(output, input, pattern)

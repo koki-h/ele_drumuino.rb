@@ -31,7 +31,7 @@ class MidiDrum
       elsif (velo <= 0 && note_on)
         note_on = false
       end
-      sleep(0.04) #絶妙のタイミング（arduino側は0.01秒ごとにメッセージ送出）
+      sleep(0.04) #パッドを叩いたときに電位が0に戻るまでの大体の時間
     end
   end
 end
