@@ -1,6 +1,7 @@
-BASS_NOTE = 36
-SNARE_NOTE = 40
-HIHAT_NOTE = 42
+require 'rubygems'
+require 'midiator'
+include MIDIator::Drums
+include MIDIator::Notes
 class MidiDrum
   def initialize(midi_device, arduino_io, pattern)
     @midi = midi_device

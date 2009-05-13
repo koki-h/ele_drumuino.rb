@@ -1,10 +1,10 @@
 drum_channel = device.openChannel(9)
-drum_channel.playMidiSound(HIHAT_NOTE, velo)
+drum_channel.playMidiSound(ClosedHiHat, velo)
 if (count % 5 == 0)
-  drum_channel.playMidiSound(SNARE_NOTE, velo)
+  drum_channel.playMidiSound(SnareDrum2, velo)
 end
 if (count % 8 == 0)
-  drum_channel.playMidiSound(BASS_NOTE, velo)
+  drum_channel.playMidiSound(BassDrum1, velo)
 end
 piano = device.openChannel(0)
-piano.playMidiSound(32, velo/2)
+piano.playMidiSound(Ab1, velo/2)

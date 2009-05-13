@@ -1,30 +1,30 @@
 drum_channel = device.openChannel(9)
-drum_channel.playMidiSound(62, velo) #Mute Hi Conga
+drum_channel.playMidiSound(MuteHighConga, velo)
 case count % 2
   when 0
-    drum_channel.playMidiSound(56, velo) #Cowbell
+    drum_channel.playMidiSound(Cowbell, velo)
 end
 
 case count % 8
   when 0
-    drum_channel.playMidiSound(71, velo) #Short Whistle
-    drum_channel.playMidiSound(73, velo) #Short Guiro
+    drum_channel.playMidiSound(ShortWhistle, velo)
+    drum_channel.playMidiSound(ShortGuiro, velo)
   when 1
-    drum_channel.playMidiSound(72, velo) #Short Whistle 
+    drum_channel.playMidiSound(ShortWhistle, velo)
   when 6
-    drum_channel.playMidiSound(63, velo) #Open Hi Conga
-    drum_channel.playMidiSound(74, velo) #Long Guiro
+    drum_channel.playMidiSound(OpenHighConga, velo)
+    drum_channel.playMidiSound(LongGuiro, velo)
   when 7
-    drum_channel.playMidiSound(64, velo) #Low Conga
+    drum_channel.playMidiSound(LowConga, velo)
 end
 case count % 4
   when 0
-    drum_channel.playMidiSound(36, velo) #Bass Drum1
-    drum_channel.playMidiSound(61, velo) #Low Bongo
+    drum_channel.playMidiSound(BassDrum1, velo)
+    drum_channel.playMidiSound(LowBongo, velo)
   when 2,3
-    drum_channel.playMidiSound(60, velo) #High Bongo
+    drum_channel.playMidiSound(HighBongo, velo)
 end
 case count % 16
   when 0
-    drum_channel.playMidiSound(49, velo) #Crash Cymbal
+    drum_channel.playMidiSound(CrashCymbal1, velo)
 end
