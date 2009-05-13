@@ -20,9 +20,11 @@ void loop()
   int val = analogRead(0);
   shift(samples,val);
   int send_val = 0;
-  if (samples[0] < samples[1] && samples[1] > samples[2]){
+  if ((samples[0] < samples[1] && samples[1] > samples[2])
+      && abs(samples[0] - samples[1]) > 10 && abs(samples[1] - samples[2]) > 10){
     send_val = samples[1];
     Serial.println(send_val / 8, DEC); //MIDI‚É‘—‚é‚Ì‚ÅÅ‘å’l‚ª127‚É‚È‚é‚æ‚¤‚É‚·‚é
+    delay(40);
   }
-  delay(10);
+  delay(1);
 }

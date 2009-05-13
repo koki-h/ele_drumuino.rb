@@ -29,6 +29,7 @@ void loop()
     send_val = max_in_arr(samples); 
     Serial.println(send_val / 8, DEC); //MIDI‚É‘—‚é‚Ì‚ÅÅ‘å’l‚ª127‚É‚È‚é‚æ‚¤‚É‚·‚é
     sample_idx = 0;
+    delay(40);
   }
   delay(10);
 }
