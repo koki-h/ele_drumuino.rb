@@ -17,17 +17,17 @@ void setup()
 
 void loop()
 {
-  //�A�i���O����0�ԃs���ɂ͈��d�X�s�[�J���Ȃ����Ă���B
-  //�i���d�X�s�[�J�̔��Α���arduino��GND�ɂȂ��j
+  //アナログ入力0番ピンには圧電スピーカがつながっている。
+  //（圧電スピーカの反対側はarduinoのGNDにつなぐ）
   int val = analogRead(0);
-  //�T���v����5����A�ő�̂��̂𑗐M����
+  //サンプルを5回取り、最大のものを送信する
   int send_val = 0;
   if (sample_idx < sizeof(samples)){
     samples[sample_idx] = val;
     sample_idx++;
   }else{
     send_val = max_in_arr(samples); 
-    Serial.println(send_val / 8, DEC); //MIDI�ɑ���̂ōő�l��127�ɂȂ�悤�ɂ���
+    Serial.println(send_val / 8, DEC); //MIDIに送るので最大値が127になるようにする
     sample_idx = 0;
     delay(40);
   }

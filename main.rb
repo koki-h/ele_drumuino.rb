@@ -7,7 +7,7 @@ require 'lib/song_pattern'
 require 'lib/help.rb'
 
 ARGV.options {|opt|
-    #音色・音階の名前リストを表示する
+    #髻ｳ濶ｲ繝ｻ髻ｳ髫弱�ｮ蜷榊燕繝ｪ繧ｹ繝医ｒ陦ｨ遉ｺ縺吶ｋ
     opt.on('--drums') do
       Help::print_drums
       exit 0
