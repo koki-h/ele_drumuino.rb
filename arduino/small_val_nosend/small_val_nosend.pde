@@ -16,9 +16,8 @@ void loop()
 {
   //アナログ入力0番ピンには圧電スピーカがつながっている。
   //（圧電スピーカの反対側はarduinoのGNDにつなぐ）
-  delay(1);                          //1ミリ秒に一回入力を読み取る。
   val = analogRead(0);
-  if (abs(prev_val - val) > 20 ){    //細かすぎる振動は送らない
+  if (abs(prev_val - val) > 10 ){    //細かすぎる振動は送らない
     Serial.println(val / 8, DEC);    //MIDIに送るので最大値が127になるようにする
     led_blink(val);
     delay(9);                        //ノイズが乗らないようにデータを送ったときは9ミリ秒待つ
