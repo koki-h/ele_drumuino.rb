@@ -3,7 +3,6 @@ drum_channel.playMidiSound(MuteHighConga, velo)
 case count % 2
   when 0
     drum_channel.playMidiSound(Cowbell, velo)
-  when 1
 end
 
 case count % 8
