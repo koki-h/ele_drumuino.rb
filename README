@@ -1,44 +1,44 @@
-�V�ѕ�
-  �h�����p�b�h�����
-    �E���d�X�s�[�J�[�̃v���X�`�b�N�̕�������菜���܂��B
-    �E���d�X�s�[�J�[����o�Ă���Q�̓d����aruduino�Ɛڑ��ł���悤�ɓd�ɂ�
-      �c�t�����܂��B
-    �E���d�X�s�[�J�[�̋���������K���ȑ傫���̃S���}�b�g2���̊Ԃɋ��݁A�{���h
-      �ŌŒ肵�܂��B
+遊び方
+  ドラムパッドを作る
+    ・圧電スピーカーのプラスチックの部分を取り除きます。
+    ・圧電スピーカーから出ている２つの電線にaruduinoと接続できるように電極を半
+      田付けします。
+    ・圧電スピーカーの金属板部分を適当な大きさのゴムマット2枚の間に挟み、ボンド
+      で固定します。
 
-  �C���~�l�[�V���������
-    �E�t���J���[LED���u���b�h�{�[�g�Ɏ��t���܂��B
-    �E�A�m�[�h���ɃW�����p�������t���܂��B
-    �E�J�\�[�h���ɓK���ɒ�R�����܂��B
-    �E�J�\�[�h���ɓ��ꂽ��R�̐�ɃW�����p�������t���܂��B
+  イルミネーションを作る
+    ・フルカラーLEDをブレッドボートに取り付けます。
+    ・アノード側にジャンパ線を取り付けます。
+    ・カソード側に適当に抵抗を入れます。
+    ・カソード側に入れた抵抗の先にジャンパ線を取り付けます。
 
-  arduino�ƃh�����p�b�h�ƃC���~�l�[�V�������Ȃ�
-    �E�C���~�l�[�V�����̃A�m�[�h����"3V"�ɁA�J�\�[�h����"DIGITAL OUT" 9,10,11��
-      �ɂȂ��܂��B
-    �E�h�����p�b�h�̐��ɑ���"ANALOG IN"�@0�ԂɁA���ɑ���"GND"�ɂȂ��܂��B
+  arduinoとドラムパッドとイルミネーションをつなぐ
+    ・イルミネーションのアノード側を"3V"に、カソード側を"DIGITAL OUT" 9,10,11番
+      につなぎます。
+    ・ドラムパッドの正極側を"ANALOG IN"　0番に、負極側を"GND"につなぎます。
 
-  PC����arduino�ɃX�P�b�`���A�b�v���[�h����
-    �Earduino��PC��USB�P�[�u���Őڑ����܂��B
-    �Earduino��PC���ʐM�ł���悤�ɐݒ肵�܂��B
-    �E�\�[�X�f�B���N�g���z����arduino�̉��ɂ���X�P�b�`�̂����A�K���Ȃ��̂�
-      arduino IDE�ŊJ���A�A�b�v���[�h���܂��B
-      ��arduino�̃X�P�b�`��"arduino"�t�H���_�z���ɉ���ނ��p�ӂ���Ă��܂����A
-        ���̂Ƃ���"small_val_nosend"����Ԃ��܂������悤�ł��B
-        �Ȃ��ɂ̓C���~�l�[�V���������삵�Ȃ����̂�����܂��B
+  PCからarduinoにスケッチをアップロードする
+    ・arduinoとPCをUSBケーブルで接続します。
+    ・arduinoとPCが通信できるように設定します。
+    ・ソースディレクトリ配下のarduinoの下にあるスケッチのうち、適当なものを
+      arduino IDEで開き、アップロードします。
+      ※arduinoのスケッチは"arduino"フォルダ配下に何種類か用意されていますが、
+        今のところ"small_val_nosend"が一番うまく動くようです。
+        なかにはイルミネーションが動作しないものもあります。
 
-  PC���v���O�������N������
-    �Earduino��PC��USB�P�[�u���Őڑ����܂��B
-    �E�R�}���h�v�����v�g���J���A�\�[�X�f�B���N�g���Ɉړ����܂��B
-    �E�R�}���h�v�����v�g��"ruby main.rb"�Ƒł����ނ�PC���̃v���O�������N������
-      ���B���̏�ԂŃh�����p�b�h��@����PC�̃X�s�[�J�[����h�����̉����������A
-      �C���~�l�[�V�������_�ł��܂��B
+  PC側プログラムを起動する
+    ・arduinoとPCをUSBケーブルで接続します。
+    ・コマンドプロンプトを開き、ソースディレクトリに移動します。
+    ・コマンドプロンプトに"ruby main.rb"と打ち込むとPC側のプログラムが起動しま
+      す。この状態でドラムパッドを叩くとPCのスピーカーからドラムの音が聞こえ、
+      イルミネーションが点滅します。
   
-  �h�����p�^�[����ύX����
-    �E�\�[�X�f�B���N�g���z����"pattern"�f�B���N�g���̒��ɂ���p�^�[���t�@�C��
-      ��"main.rb"�̈����Ƃ��ēn���ƃh�����p�^�[�����ω����܂��B
+  ドラムパターンを変更する
+    ・ソースディレクトリ配下の"pattern"ディレクトリの中にあるパターンファイル
+      を"main.rb"の引数として渡すとドラムパターンが変化します。
       (ex. # ruby main.rb pattern\powerful.rb )
-    �E�p�^�[���t�@�C����ruby����ŋL�q����Ă���A�����ō쐬���邱�Ƃ��\�ł��B
+    ・パターンファイルはruby言語で記述されており、自分で作成することも可能です。
     
-   �p�^�[���t�@�C���v���O���~���O���t�@�����X 
-     �E�܂�����܂���B
+   パターンファイルプログラミングリファレンス 
+     ・まだありません。
 
