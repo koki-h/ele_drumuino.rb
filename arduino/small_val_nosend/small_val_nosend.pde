@@ -18,7 +18,7 @@ void loop()
   //（圧電スピーカの反対側はarduinoのGNDにつなぐ）
   val = analogRead(0);
   if (abs(prev_val - val) > 10 ){    //細かすぎる振動は送らない
-    Serial.println(val / 8, DEC);    //MIDIに送るので最大値が127になるようにする
+    Serial.println(127, DEC);    //MIDIに送るので最大値が127になるようにする
     led_blink(val);
     delay(9);                        //ノイズが乗らないようにデータを送ったときは9ミリ秒待つ
   }

@@ -2,6 +2,8 @@
   材料をそろえる
     ・以下の材料をそろえる。
       ・WindowsPC（rubyとarduino IDEをインストールしたもの）
+      ・ソースコード
+        http://github.com/koki-h/ele_drum/ からダウンロードできます。
       ・arduino
       ・イルミネーションの材料
         ・フルカラーLED
