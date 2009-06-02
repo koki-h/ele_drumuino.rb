@@ -7,7 +7,6 @@ class MidiDrum
     @midi = midi_device
     @aio  = arduino_io
     @pattern = pattern
-    p pattern
   end
 
   def play(velo,count)

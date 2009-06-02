@@ -1,3 +1,6 @@
+#define ARE_YOU_DRUMUINO '0'
+#define I_AM_DRUMUINO    '1'
+
 int val = 0;
 int prev_val = 0;
 int redPin = 9;
@@ -14,6 +17,10 @@ void setup()
 
 void loop()
 {
+  char pc_msg = Serial.read();
+  if (pc_msg == ARE_YOU_DRUMUINO){
+      Serial.print(I_AM_DRUMUINO);
+  }
   //アナログ入力0番ピンには圧電スピーカがつながっている。
   //（圧電スピーカの反対側はarduinoのGNDにつなぐ）
   val = analogRead(0);

@@ -21,7 +21,8 @@ ARGV.options {|opt|
 }
 
 output = MidiDevice.new
-input = ArduinoIO.new(6)
+input = ArduinoIO.new()
+puts "Using COM#{input.port_no}. OK, hit the pad!"
 pattern_file = ARGV[0]
 pattern = SongPattern::load(pattern_file)
 drum = MidiDrum.new(output, input, pattern)
