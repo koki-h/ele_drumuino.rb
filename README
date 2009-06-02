@@ -39,11 +39,8 @@
   PCからarduinoにスケッチをアップロードする
     ・arduinoとPCをUSBケーブルで接続します。
     ・arduinoとPCが通信できるように設定します。
-    ・ソースディレクトリ配下のarduinoの下にあるスケッチのうち、適当なものを
+    ・ソースディレクトリ配下のarduinoの下にあるスケッチ"ele_drumuino.pde"を
       arduino IDEで開き、アップロードします。
-      ※arduinoのスケッチは"arduino"フォルダ配下に何種類か用意されていますが、
-        今のところ"small_val_nosend"が一番うまく動くようです。
-        なかにはイルミネーションが動作しないものもあります。
 
   PC側プログラムを起動する
     ・arduinoとPCをUSBケーブルで接続します。
