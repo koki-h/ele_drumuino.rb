@@ -7,17 +7,16 @@ require 'lib/song_pattern'
 require 'lib/help.rb'
 
 ARGV.options {|opt|
-    #音色・音階の名前リストを表示する
-    opt.on('--drums') do
-      Help::print_drums
-      exit 0
-    end
-    opt.on('--notes') do
-      Help::print_notes
-      exit 0
-    end
-
-    opt.parse!
+  #音色・音階の名前リストを表示する
+  opt.on('--drums') do
+    Help::print_drums
+    exit 0
+  end
+  opt.on('--notes') do
+    Help::print_notes
+    exit 0
+  end
+  opt.parse!
 }
 
 output = MidiDevice.new
